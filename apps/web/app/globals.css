@@ -712,3 +712,20 @@
     hsla(280, 87%, 65%, 0.1) 100%);
   border: 1px solid hsla(262, 83%, 58%, 0.2);
 }
+
+/* Loading bar animation for cold starts */
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}

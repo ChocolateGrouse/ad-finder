@@ -5,6 +5,17 @@ import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
 import { Toaster } from "./toaster";
+import { LoadingScreen, useApiWarmup } from "./loading-screen";
+
+function AppContent({ children }: { children: React.ReactNode }) {
+  const { isWarm, isChecking } = useApiWarmup();
+
+  if (isChecking && !isWarm) {
+    return <LoadingScreen />;
+  }
+
+  return <>{children}</>;
+}
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -28,7 +39,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AppContent>{children}</AppContent>
           <Toaster />
         </ThemeProvider>
       </QueryClientProvider>
