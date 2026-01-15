@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,23 @@ import {
 } from "lucide-react";
 
 export default function SearchResultsPage() {
+  return (
+    <Suspense fallback={<SearchResultsLoading />}>
+      <SearchResultsContent />
+    </Suspense>
+  );
+}
+
+function SearchResultsLoading() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
+      <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <p className="text-muted-foreground">Loading...</p>
+    </div>
+  );
+}
+
+function SearchResultsContent() {
   const searchParams = useSearchParams();
   const searchId = searchParams.get("id");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -32,9 +49,12 @@ export default function SearchResultsPage() {
     if (!searchId) return;
 
     try {
-      const data = await api.searches.getResults(searchId);
-      setResults(data.results || []);
-      setStatus(data.status);
+      const search = await api.searches.get(searchId);
+      setStatus(search.status);
+      if (search.status === "COMPLETED") {
+        const resultsData = await api.searches.getResults(searchId);
+        setResults(resultsData);
+      }
     } catch (err) {
       setError("Failed to load search results");
     } finally {

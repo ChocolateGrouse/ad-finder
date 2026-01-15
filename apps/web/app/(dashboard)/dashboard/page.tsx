@@ -182,11 +182,7 @@ export default function DashboardPage() {
                 </div>
                 <p
                   className={`text-xs mt-1 ${
-                    stat.trend === "up"
-                      ? "text-green-600"
-                      : stat.trend === "down"
-                      ? "text-red-600"
-                      : "text-muted-foreground"
+                    stat.trend === "up" ? "text-green-600" : "text-muted-foreground"
                   }`}
                 >
                   {stat.trend === "up" && <TrendingUp className="inline h-3 w-3 mr-1" />}
