@@ -92,7 +92,7 @@ const AD_PLACEMENTS: AdPlacement[] = [
     minBudget: 5000,
     maxBudget: 150000,
     cpmEstimate: 15.0,
-    cpcEstimate: null,
+    cpcEstimate: undefined,
     estimatedReach: 2000000,
     avgCtr: 0.035,
     avgConversion: 0.025,

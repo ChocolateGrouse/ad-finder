@@ -4,6 +4,7 @@ import { PricingModel } from "@prisma/client";
 export class NewsletterScraper extends BaseScraper {
   platformName = "Newsletter Sponsorships";
   platformType = "NEWSLETTER";
+  sourceUrl = "https://swapstack.co";
 
   async scrape(): Promise<ScraperResult[]> {
     const results: ScraperResult[] = [];

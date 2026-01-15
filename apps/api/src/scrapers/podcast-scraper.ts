@@ -4,6 +4,7 @@ import { PricingModel } from "@prisma/client";
 export class PodcastScraper extends BaseScraper {
   platformName = "Podcast Networks";
   platformType = "PODCAST";
+  sourceUrl = "https://podcorn.com";
 
   async scrape(): Promise<ScraperResult[]> {
     const results: ScraperResult[] = [];
@@ -20,7 +21,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 250,
         maxBudget: 25000,
         cpmEstimate: 18.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 50000,
         avgCtr: 0.012,
         avgConversion: 0.008,
@@ -44,7 +45,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 500,
         maxBudget: 50000,
         cpmEstimate: 25.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 75000,
         avgCtr: 0.018,
         avgConversion: 0.015,
@@ -68,7 +69,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 150,
         maxBudget: 15000,
         cpmEstimate: 12.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 40000,
         avgCtr: 0.008,
         avgConversion: 0.005,
@@ -91,7 +92,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 2000,
         maxBudget: 100000,
         cpmEstimate: 35.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 100000,
         avgCtr: 0.025,
         avgConversion: 0.018,
@@ -115,7 +116,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 100,
         maxBudget: 30000,
         cpmEstimate: 15.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 200000,
         avgCtr: 0.010,
         avgConversion: 0.007,
@@ -139,8 +140,8 @@ export class PodcastScraper extends BaseScraper {
         pricingModel: "FLAT_RATE" as PricingModel,
         minBudget: 10000,
         maxBudget: 250000,
-        cpmEstimate: null,
-        cpcEstimate: null,
+        cpmEstimate: undefined,
+        cpcEstimate: undefined,
         estimatedReach: 500000,
         avgCtr: 0.035,
         avgConversion: 0.022,
@@ -164,7 +165,7 @@ export class PodcastScraper extends BaseScraper {
         minBudget: 1000,
         maxBudget: 75000,
         cpmEstimate: 20.0,
-        cpcEstimate: null,
+        cpcEstimate: undefined,
         estimatedReach: 300000,
         avgCtr: 0.014,
         avgConversion: 0.010,

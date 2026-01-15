@@ -10,7 +10,7 @@ export interface ScraperResult {
   minBudget?: number;
   maxBudget?: number;
   cpmEstimate?: number;
-  cpcEstimate?: number | null;
+  cpcEstimate?: number;
   estimatedReach?: number;
   audienceData?: Record<string, unknown>;
   targetingOptions?: Record<string, unknown>;
